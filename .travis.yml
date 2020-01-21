@@ -3,7 +3,7 @@ sudo: false
 notifications:
   email: false
 env:
-  - RELEASE_TAG="release-Assignment3-Attempt1"
+  - RELEASE_TAG="release-Assignment3-Attempt2"
 if: tag IS blank
 
 
@@ -17,7 +17,7 @@ jobs:
       before_deploy:
         - git config --local user.name "prakash-rbs"
         - git config --local user.email "Nuti.Prakash@rbs.co.uk"
-        - git tag -f $RELEASE_TAG
+        - git tag -f release-Assignment3-Attempt2
       deploy:
         provider: releases
         api_key: 022d16ed149a556472e739a63d06da27969dea2d
@@ -26,10 +26,10 @@ jobs:
     - stage: deploy to cf
       language: bash
       script:
-        - echo "Downloading $RELEASE_TAG"
-        - wget -P build/libs https://github.com/prakash-rbs/pal-tracker/releases/download/$RELEASE_TAG/pal-tracker.jar
+        - echo "Downloading release-Assignment3-Attempt2"
+        - wget -P build/libs https://github.com/prakash-rbs/pal-tracker/releases/download/release-Assignment3-Attempt2/pal-tracker.jar
       before_deploy:
-        - echo "Deploying $RELEASE_TAG to Cloud Foundry"
+        - echo "Deploying release-Assignment3-Attempt2 to Cloud Foundry"
       deploy:
         provider: cloudfoundry
         api: https://api.sys.evans.pal.pivotal.io
