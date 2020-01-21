@@ -3,7 +3,7 @@ sudo: false
 notifications:
   email: false
 env:
-  - RELEASE_TAG="release-$TRAVIS_BUILD_NUMBER"
+  - RELEASE_TAG="release-Assignment3-Attempt1"
 if: tag IS blank
 
 
